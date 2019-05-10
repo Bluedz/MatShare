@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-list',
@@ -20,8 +22,10 @@ export class ListPage implements OnInit {
     'build'
   ];
   public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    let base = ["临港"];
+  constructor(public router: Router) {
+    const base = ['临港'];
+
+
     for (let i = 1; i < 50; i++) {
       this.items.push({
         title: 'DB100001 ',
@@ -29,6 +33,16 @@ export class ListPage implements OnInit {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
+  }
+
+  gotolistDetail(param1: any, param2: any) {
+    // console.log(param2);
+    this.router.navigate(['/list-mat-detail'], {
+      queryParams: {
+          title: param1,
+          arr: JSON.stringify(param2)
+      }
+    });
   }
 
   ngOnInit() {
