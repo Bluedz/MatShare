@@ -32,7 +32,7 @@ export class TestGetDataService {
     // const promise = this.httpClient.post(url, filter, this.httpOptions).toPromise();
     const promise = this.httpClient.post(url, filter, {
       headers: new HttpHeaders({
-          // 'Accept': 'application/json',
+        'Accept': '*/*', // 'application/json',
           'Content-Type': 'application/x-www-form-urlencoded' // ;charset=UTF-8
       })
     }).toPromise();

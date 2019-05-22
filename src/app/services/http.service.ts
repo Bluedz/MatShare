@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { map, catchError, retry } from 'rxjs/operators';
 
 
 
@@ -36,9 +36,18 @@ export class HttpService {
       return this.httpClient.post(url, body, {
           headers: new HttpHeaders({
               'Accept': '*/*', // 'application/json',
-              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+              'Content-Type': 'application/x-www-form-urlencoded' // ;charset=UTF-8'
           })
       });
-         // .map(res => res.json());
+         // .map(res => res.json()) ;
   }
+
+  loadfakeData( param: Number, param2: string) {
+      if (param === 1) {
+         return this.httpClient.get('assets/data/data-mat.json');
+      } else {
+        return this.httpClient.get('assets/data/data-mat.1.json');
+      }
+  }
+
 }

@@ -8,22 +8,37 @@
     </ion-title>    
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Search" debounce = "500" cancelButtonText="Cancel"  showCancelButton ="false" animated 
+    [(ngModel)] = "searchText"        
+    (ionCancel) = "onCancel($event)"
+    (ionClear) = "onClear($event)"
+    (ionInput) = "ionInput($event)"
+    ></ion-searchbar>
   </ion-toolbar>  
 </ion-header>
 
 <ion-content>  
+  <!-- <ion-button (click)="toggleInfiniteScroll()" expand="block">
+    Toggle Infinite Scroll
+  </ion-button> -->
   <ion-list>
       <!--<ion-button routerDirection="root" routerLink="/home" >Default</ion-button>-->
     
-    <ion-item *ngFor="let item of items" (click)="gotolistDetail(item.title, item)">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
+    <ion-item *ngFor="let item of itms" (click)="gotolistDetail(item.MatNo, item)">
+      <!-- <ion-icon [name]="item.icon" slot="start"></ion-icon> -->
+      <ion-label color="danger">{{item.MatNo}}</ion-label>
+      {{item.Base}}
       <div class="item-note" slot="end">
-        {{item.note}}
+        {{item.MatDetail}}
       </div>
     </ion-item>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="正在加载更多数据...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
   <!--
     <div *ngIf="selectedItem" padding>
       You navigated here from <b>{{selectedItem.title }}</b>
