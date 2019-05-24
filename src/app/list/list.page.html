@@ -8,12 +8,21 @@
     </ion-title>    
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar placeholder="Search" debounce = "500" cancelButtonText="Cancel"  showCancelButton ="false" animated 
-    [(ngModel)] = "searchText"        
+    <ion-searchbar 
+    placeholder="Search" 
+    debounce = "500" 
+    cancelButtonText="Cancel"  
+    showCancelButton ="false" 
+    animated 
+    [(ngModel)] = "searchText"
+    (ionChange) = "ionChange($event)"
+    (click) = "goSearch()"     
+    > 
+    <!--
+      
     (ionCancel) = "onCancel($event)"
-    (ionClear) = "onClear($event)"
-    (ionInput) = "ionInput($event)"
-    ></ion-searchbar>
+    (ionClear) = "onClear($event)" -->
+    </ion-searchbar>
   </ion-toolbar>  
 </ion-header>
 

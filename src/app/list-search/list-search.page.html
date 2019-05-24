@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="list"></ion-back-button>
+      </ion-buttons>
+    <ion-title>查询</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="stacked">物料号</ion-label>
+        <ion-textarea placeholder="请输入物料号" [(ngModel)]="filters.MatNo"
+        clear-on-edit
+        ></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">基地名称</ion-label>
+        <ion-textarea placeholder="请输入基地名称" [(ngModel)]="filters.Base"
+        clear-on-edit
+        ></ion-textarea>
+    </ion-item>
+  <ion-button size="default" expand="block" (click)="adSearch()">
+    搜索
+  </ion-button>
+</ion-content>

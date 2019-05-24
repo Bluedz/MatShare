@@ -43,7 +43,7 @@ export class HttpService {
   }
 
   loadfakeData( param: Number, param2: string) {
-      if (param === 1) {
+      if (param2 === '') {
          return this.httpClient.get('assets/data/data-mat.json');
       } else {
         return this.httpClient.get('assets/data/data-mat.1.json');

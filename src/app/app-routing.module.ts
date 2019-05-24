@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'transfer-list',
     loadChildren: './transfer-list/transfer-list.module#TransferListPageModule' },
   { path: 'list-mat-detail', loadChildren: './list-mat-detail/list-mat-detail.module#ListMatDetailPageModule' },
-  { path: 'transfer-list-detail', loadChildren: './transfer-list-detail/transfer-list-detail.module#TransferListDetailPageModule' }
+  { path: 'transfer-list-detail', loadChildren: './transfer-list-detail/transfer-list-detail.module#TransferListDetailPageModule' },
+  { path: 'list-search', loadChildren: './list-search/list-search.module#ListSearchPageModule' }
 ];
 
 @NgModule({

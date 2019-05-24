@@ -8,7 +8,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 
 //
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -38,11 +38,21 @@ export class ListPage implements OnInit {
   private totalPages: Number;
   private pageSize = 10;
   private currentPage = 1;
-  public searchText = 'x';
+  public searchText = '';
+  private filters = {
+    MatNo: '',
+    Base: ''
+  };
 
-  constructor(public router: Router, private httpService: HttpService,
-    private testGetDataService: TestGetDataService) {
+
+ // public infiniteScroll = null;
+
+
+
+  constructor(public activeRoute: ActivatedRoute, public router: Router,
+    private httpService: HttpService, private testGetDataService: TestGetDataService) {
     const base = ['临港'];
+
 
     for (let i = 1; i < 50; i++) {
       this.items.push({
@@ -51,6 +61,25 @@ export class ListPage implements OnInit {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
+
+    // this.activeRoute.queryParams = null;
+    this.activeRoute.queryParams.subscribe((params: Params) => {
+      // console.log (params['backFilters']);
+      if (params['backFilters'] != null) {
+        // console.log (params['backFilters']);
+        this.filters = JSON.parse(params['backFilters']);
+        console.log (this.filters);
+        //
+        // console.log (this.filters.MatNo + '&' + this.filters.Base);
+        this.currentPage = 1;
+        // console.log (this.filters.MatNo + '&' + this.filters.Base);
+        this.searchText = this.filters.MatNo + '&' + this.filters.Base;
+        this.itms = [];
+        this.getMatlist();
+      } else {
+        this.getMatlist();
+      }
+    });
   }
 
   gotolistDetail(param1: any, param2: any) {
@@ -69,18 +98,22 @@ export class ListPage implements OnInit {
   // ----------
     this.httpService.loadfakeData(_this.currentPage, _this.searchText).subscribe((res: any) => {
       const datas = res.data;
+
+      // _this.itms = [];
+
       _this.totalPages = res.totalPages;
       for ( let i = 0; i < datas.length; i++) {
         _this.itms.push(datas[i]);
       }
 
+      //  _this.infiniteScroll.complete();
       // if (_this.infiniteScroll != null) {
       //   _this.infiniteScroll.complete();
-      //   _this.infiniteScroll = null;
+      //   // _this.infiniteScroll = null;
       // }
 
       console.log(_this.itms);
-      console.log('load = ' + 'to:' + this.totalPages + '; cu:' + this.currentPage + '; ' + this.infiniteScroll);
+      console.log('load = ' + 'to:' + this.totalPages + '; cu:' + this.currentPage + '; ' + this.infiniteScroll.position);
       // console.log(_this.itms[0].物料号);
     });
 
@@ -100,21 +133,31 @@ export class ListPage implements OnInit {
   }
 
   // 搜索框操作
-  onCancel ($event) {
-     // this.searchText = 'can';
+
+  // onCancel ($event) {
+  //    // this.searchText = 'can';
+  // }
+
+  // onClear ($event) {
+  //    // this.reSet();
+  //   //  this.searchText = 'cl';
+  //   //  this.getMatlist ();
+  //   console.log('clear');
+  // }
+
+  goSearch() {
+    this.router.navigate(['/list-search'], {
+      queryParams: {
+          searchFilters: JSON.stringify(this.filters)
+      }
+    });
+
   }
 
-  onClear ($event) {
-     // this.reSet();
-    //  this.searchText = 'cl';
-    //  this.getMatlist ();
-    console.log('clear');
-  }
-
-  ionInput ($event) {
+  ionChange ($event) {
      this.reSet();
      this.getMatlist();
-     console.log('input=' + 'to:' + this.totalPages + '; cu:' + this.currentPage + '; ' + this.infiniteScroll);
+     // console.log('input=' + 'to:' + this.totalPages + '; cu:' + this.currentPage + '; ' + this.infiniteScroll.disabled);
   }
 
 
@@ -153,7 +196,7 @@ export class ListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getMatlist();
+    // this.getMatlist();
 
   }
 
