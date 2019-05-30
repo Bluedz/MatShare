@@ -1,0 +1,23 @@
+{
+"data": 
+		[
+        	{
+            "TransferNumber": "GY20191102001" // 调拨单号
+			"MatNo": "DB100001",  				// 物料号
+            "ContactInfo": {						//  联系内容
+					"Desc": "金桥基地...", 			//  联系内容描述
+					"Count": "10",						//	数量
+					"Name": "压入式弯管接头"		//	中英文名称
+
+
+			},
+			"D-side-Institution": "金桥共用", 	// 需求方制单部门
+			"D-side Maker": "贾培成"				// 需求方制单人
+        	
+		  	},
+        	{
+           
+        	}
+  		],
+    "totalPages": 5
+}

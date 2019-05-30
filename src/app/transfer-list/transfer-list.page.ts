@@ -9,26 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class TransferListPage implements OnInit {
   // private s
   private icons = [
-    /*'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',*/
     'paper'
   ];
-  public items: Array<{ title: string; note: string; icon: string}> = [];
+  public itms = [];
   constructor() {
     for (let i = 1; i < 50; i++) {
-      this.items.push({
-        title: 'GY20191102001 ',
-        note: 'YB21931 #' + i,
-        icon: this.icons[
-          Math.floor(Math.random() * this.icons.length)
-        ]
+      this.itms.push({
+        TransferNumber: 'GY20191102001 ',
+        MatNo: 'YB21931 #' + i,
+        icon: this.icons[0]
       });
     }
   }

@@ -43,10 +43,16 @@ export class HttpService {
   }
 
   loadfakeData( param: Number, param2: string) {
-      if (param2 === '') {
-         return this.httpClient.get('assets/data/data-mat.json');
-      } else {
-        return this.httpClient.get('assets/data/data-mat.1.json');
+      if (param === 1 && param2 === '') {
+         return this.httpClient.get('assets/data/data-mat.01.json');
+      } else if (param2 === '') {
+        return this.httpClient.get('assets/data/data-mat.02.json');
+      }
+
+      if (param === 1 && param2 !== '') {
+        return this.httpClient.get('assets/data/data-mat.11.json');
+      } else if (param2 !== '') {
+       return this.httpClient.get('assets/data/data-mat.12.json');
       }
   }
 

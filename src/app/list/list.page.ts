@@ -18,27 +18,16 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class ListPage implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-
-  private selectedItem: any;
   private icons = [
-    /*'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',*/
     'build'
   ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
 
   public itms = [];
   private totalPages: Number;
   private pageSize = 10;
   private currentPage = 1;
   public searchText = '';
+  private searchBarText = '';
   private filters = {
     MatNo: '',
     Base: ''
@@ -47,77 +36,80 @@ export class ListPage implements OnInit {
 
  // public infiniteScroll = null;
 
-
-
   constructor(public activeRoute: ActivatedRoute, public router: Router,
     private httpService: HttpService, private testGetDataService: TestGetDataService) {
-    const base = ['临港'];
 
-
-    for (let i = 1; i < 50; i++) {
-      this.items.push({
-        title: 'DB100001 ',
-        note: base[0] + ' 气动接头|Connector #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
-
-    // this.activeRoute.queryParams = null;
     this.activeRoute.queryParams.subscribe((params: Params) => {
       // console.log (params['backFilters']);
       if (params['backFilters'] != null) {
-        // console.log (params['backFilters']);
         this.filters = JSON.parse(params['backFilters']);
         console.log (this.filters);
+        this.searchBarText = '';
         //
         // console.log (this.filters.MatNo + '&' + this.filters.Base);
-        this.currentPage = 1;
-        // console.log (this.filters.MatNo + '&' + this.filters.Base);
-        this.searchText = this.filters.MatNo + '&' + this.filters.Base;
-        this.itms = [];
-        this.getMatlist();
+        if (this.filters.MatNo.length !== 0 || this.filters.Base.length !== 0) {
+          this.searchText = 'MatNo=' + this.filters.MatNo + '&' + 'Base=' + this.filters.Base;
+          this.searchBarText = this.filters.MatNo + ', ' + this.filters.Base;
+          // this.currentPage = 1;
+          // this.itms = [];
+          this.reSet ();
+          this.getMatlist();
+        }
       } else {
-        this.getMatlist();
+        if ( this.itms.length === 0) {
+          this.getMatlist();
+        }
       }
     });
   }
 
-  gotolistDetail(param1: any, param2: any) {
+  // go Detail
+  gotolistDetail(param: any) {
     // console.log(param2);
     this.router.navigate(['/list-mat-detail'], {
       queryParams: {
-          title: param1,
-          arr: JSON.stringify(param2)
+          matDetailArr: JSON.stringify(param)
       }
     });
   }
 
+  // to search
+  goSearch() {
+    this.router.navigate(['/list-search'], {
+      queryParams: {
+          searchFilters: JSON.stringify(this.filters)
+      }
+    });
+  }
+
+  // reset data
+  private reSet () {
+    this.infiniteScroll.disabled = false;
+    this.totalPages = 0;
+    this.currentPage = 1;
+    this.itms = [];
+  }
+
+  // get & update list
   getMatlist() {
     const _this = this;
 
-  // ----------
+    // use Fake ----------
     this.httpService.loadfakeData(_this.currentPage, _this.searchText).subscribe((res: any) => {
       const datas = res.data;
-
-      // _this.itms = [];
 
       _this.totalPages = res.totalPages;
       for ( let i = 0; i < datas.length; i++) {
         _this.itms.push(datas[i]);
       }
 
-      //  _this.infiniteScroll.complete();
-      // if (_this.infiniteScroll != null) {
-      //   _this.infiniteScroll.complete();
-      //   // _this.infiniteScroll = null;
-      // }
-
       console.log(_this.itms);
-      console.log('load = ' + 'to:' + this.totalPages + '; cu:' + this.currentPage + '; ' + this.infiniteScroll.position);
-      // console.log(_this.itms[0].物料号);
+      console.log('load = ' + 'to:' + this.totalPages + '; cu:' + this.currentPage + '; '
+       + this.searchText + '; ' + this.infiniteScroll.disabled);
+
     });
 
-  // --------
+    // use true --------
     const url = Config.urlarr.u3 + Config.urlkeyArr.k3;
     const body = 'currentPage=' + _this.currentPage
                 + '&pageSize=' + _this.pageSize
@@ -132,36 +124,8 @@ export class ListPage implements OnInit {
 
   }
 
-  // 搜索框操作
 
-  // onCancel ($event) {
-  //    // this.searchText = 'can';
-  // }
-
-  // onClear ($event) {
-  //    // this.reSet();
-  //   //  this.searchText = 'cl';
-  //   //  this.getMatlist ();
-  //   console.log('clear');
-  // }
-
-  goSearch() {
-    this.router.navigate(['/list-search'], {
-      queryParams: {
-          searchFilters: JSON.stringify(this.filters)
-      }
-    });
-
-  }
-
-  ionChange ($event) {
-     this.reSet();
-     this.getMatlist();
-     // console.log('input=' + 'to:' + this.totalPages + '; cu:' + this.currentPage + '; ' + this.infiniteScroll.disabled);
-  }
-
-
-  // 当上划操作
+  // 当上划操作 ----
   doInfinite(event) {
     setTimeout(() => {
 
@@ -184,24 +148,19 @@ export class ListPage implements OnInit {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
 
-  private reSet () {
-    // if (this.infiniteScroll != null) {
-    //   this.infiniteScroll.complete();
-    //   this.infiniteScroll = null;
-    // }
-    // this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-    this.totalPages = 0;
-    this.currentPage = 1;
-    this.itms = [];
-  }
-
   ngOnInit() {
-    // this.getMatlist();
-
-  }
 
   // add back when alpha.4 is out
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+  }
+
+///////////////////////////////////////////////////////////////////
+  // test function
+  test () {
+    this.currentPage = 3;
+    this.itms = [];
+    this.getMatlist ();
+    this.infiniteScroll.disabled = false;
+  }
 }

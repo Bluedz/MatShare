@@ -14,12 +14,11 @@
     cancelButtonText="Cancel"  
     showCancelButton ="false" 
     animated 
-    [(ngModel)] = "searchText"
-    (ionChange) = "ionChange($event)"
+    [(ngModel)] = "searchBarText"    
     (click) = "goSearch()"     
     > 
     <!--
-      
+    (ionChange) = "ionChange($event)"  
     (ionCancel) = "onCancel($event)"
     (ionClear) = "onClear($event)" -->
     </ion-searchbar>
@@ -30,10 +29,13 @@
   <!-- <ion-button (click)="toggleInfiniteScroll()" expand="block">
     Toggle Infinite Scroll
   </ion-button> -->
+  <ion-button (click)="test()" expand="block">
+    Test of Infinite Scroll
+  </ion-button> 
   <ion-list>
       <!--<ion-button routerDirection="root" routerLink="/home" >Default</ion-button>-->
     
-    <ion-item *ngFor="let item of itms" (click)="gotolistDetail(item.MatNo, item)">
+    <ion-item *ngFor="let item of itms" (click)="gotolistDetail(item)">
       <!-- <ion-icon [name]="item.icon" slot="start"></ion-icon> -->
       <ion-label color="danger">{{item.MatNo}}</ion-label>
       {{item.Base}}
@@ -44,8 +46,9 @@
   </ion-list>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content
+      
       loadingSpinner="bubbles"
-      loadingText="正在加载更多数据...">
+      loadingText="正在加载更多数据..."> <!--threshold="100px" -->
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
   <!--

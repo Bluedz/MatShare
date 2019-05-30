@@ -6,17 +6,30 @@
     <ion-title>调拨单列表</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-      <ion-searchbar></ion-searchbar>
-    </ion-toolbar>    
+    <ion-searchbar 
+    placeholder="Search" 
+    debounce = "500" 
+    cancelButtonText="Cancel"  
+    showCancelButton ="false" 
+    animated 
+    [(ngModel)] = "searchBarText"    
+    (click) = "goSearch()"     
+    > 
+    <!--
+    (ionChange) = "ionChange($event)"  
+    (ionCancel) = "onCancel($event)"
+    (ionClear) = "onClear($event)" -->
+    </ion-searchbar>
+  </ion-toolbar>    
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
+    <ion-item *ngFor="let item of itms">
       <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
+      {{item.TransferNumber}}
       <div class="item-note" slot="end">
-        {{item.note}}
+        {{item.MatNo}}
       </div>
     </ion-item>
   </ion-list>
