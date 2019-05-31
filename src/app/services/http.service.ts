@@ -15,36 +15,37 @@ export class HttpService {
 
   public httpOptions = {
     headers: new HttpHeaders({
-   // 'Content-Type': 'application/json; charset=UTF-8'
-   'Content-Type': 'application/x-www-form-urlencodeed'
-   })
+      // 'Content-Type': 'application/json; charset=UTF-8'
+      'Content-Type': 'application/x-www-form-urlencodeed'
+    })
   };
 
   // get请求
   get(url: string): Observable<any> {
-      return this.httpClient.get(url, {
-          headers: new HttpHeaders({
-              'Accept': 'application/json',
-              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-          })
-      });
-          // .map(res => res.json());
+    return this.httpClient.get(url, {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      })
+    });
+    // .map(res => res.json());
   }
 
   // post请求
   post(url: string, body: any): Observable<any> {
-      return this.httpClient.post(url, body, {
-          headers: new HttpHeaders({
-              'Accept': '*/*', // 'application/json',
-              'Content-Type': 'application/x-www-form-urlencoded' // ;charset=UTF-8'
-          })
-      });
-         // .map(res => res.json()) ;
+    return this.httpClient.post(url, body, {
+      headers: new HttpHeaders({
+        'Accept': '*/*', // 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded' // ;charset=UTF-8'
+      })
+    });
+    // .map(res => res.json()) ;
   }
 
-  loadfakeData( param: Number, param2: string) {
+  loadfakeData(param0: string, param: Number, param2: string) {
+    if (param0 === 'Mat') {
       if (param === 1 && param2 === '') {
-         return this.httpClient.get('assets/data/data-mat.01.json');
+        return this.httpClient.get('assets/data/data-mat.01.json');
       } else if (param2 === '') {
         return this.httpClient.get('assets/data/data-mat.02.json');
       }
@@ -52,8 +53,23 @@ export class HttpService {
       if (param === 1 && param2 !== '') {
         return this.httpClient.get('assets/data/data-mat.11.json');
       } else if (param2 !== '') {
-       return this.httpClient.get('assets/data/data-mat.12.json');
+        return this.httpClient.get('assets/data/data-mat.12.json');
       }
+    }
+
+    if (param0 === 'transfer') {
+      if (param === 1 && param2 === '') {
+        return this.httpClient.get('assets/data/InvocationDoc.01.json');
+      } else if (param2 === '') {
+        return this.httpClient.get('assets/data/InvocationDoc.02.json');
+      }
+
+      if (param === 1 && param2 !== '') {
+        return this.httpClient.get('assets/data/InvocationDoc.11.json');
+      } else if (param2 !== '') {
+        return this.httpClient.get('assets/data/InvocationDoc.12.json');
+      }
+    }
   }
 
 }

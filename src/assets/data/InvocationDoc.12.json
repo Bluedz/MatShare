@@ -1,124 +1,133 @@
 {
-	"data":[
-		 {
-			"TransferNumber": "GY20191102001",  
-			"MatNo":"LG100000",
-			  "contactInfo":{
-					"desc":"金桥基地...",
-					"count":"10",
-					"Name":"压入式弯管接头"
-			  },
-			  "D-side-Institution":"金桥共用",
-			  "D-side Maker":"贾培成"
-		 },
-		 {
+	"data": [{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100001",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100000",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
-
-		 },
-		 {
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
+		},
+		{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100002",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100001",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
 
-		 },
-		 {
+		},
+		{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100003",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100002",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
 
-		 },
-		 {
+		},
+		{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100004",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100003",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
 
-		 },
-		 {
+		},
+		{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100005",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100004",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
 
-		 },
-		 {
+		},
+		{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100006",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100005",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
 
-		 },
-		 {
+		},
+		{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100007",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100006",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
 
-		 },
-		 {
+		},
+		{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100008",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100007",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
 
-		 },
-		 {
+		},
+		{
 			"TransferNumber": "GY20191102001",
-			"MatNo":"LG100009",
-			"contactInfo":{
-				 "desc":"金桥基地...",
-				 "count":"10",
-				 "Name":"压入式弯管接头"
+			"MatNo": "LG100008",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
 			},
-			"D-side-Institution":"金桥共用",
-			"D-side Maker":"贾培成"
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
 
-		 }
+		},
+		{
+			"TransferNumber": "GY20191102001",
+			"MatNo": "LG100009",
+			"State": "审批中",
+			"contactInfo": {
+				"desc": "金桥基地...",
+				"count": "10",
+				"Name": "压入式弯管接头"
+			},
+			"D-side-Institution": "金桥共用",
+			"D-side Maker": "贾培成"
+
+		}
 	],
-	"totalPages":5
+	"totalPages": 5
 }

@@ -27,7 +27,7 @@ export class ListPage implements OnInit {
   private pageSize = 10;
   private currentPage = 1;
   public searchText = '';
-  private searchBarText = '';
+  public searchBarText = '';
   private filters = {
     MatNo: '',
     Base: ''
@@ -95,7 +95,7 @@ export class ListPage implements OnInit {
     const _this = this;
 
     // use Fake ----------
-    this.httpService.loadfakeData(_this.currentPage, _this.searchText).subscribe((res: any) => {
+    this.httpService.loadfakeData('Mat', _this.currentPage, _this.searchText).subscribe((res: any) => {
       const datas = res.data;
 
       _this.totalPages = res.totalPages;
