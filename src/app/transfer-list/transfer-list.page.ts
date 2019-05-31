@@ -36,6 +36,7 @@ export class TransferListPage implements OnInit {
       // }
 
     this.getList();
+    
   }
 
   goSearch() {}
