@@ -143,6 +143,17 @@ export class ListPage implements OnInit {
     }, 500);
   }
 
+ // 滑动刷新
+ doRefresh(event) {
+  console.log('Begin async operation');
+  this.reSet ();
+  this.getMatlist ();
+  setTimeout(() => {
+    console.log('Async operation has ended');
+    event.target.complete();
+  }, 2000);
+}
+
   // 暂无用
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;

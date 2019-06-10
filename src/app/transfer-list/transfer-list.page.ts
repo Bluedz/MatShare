@@ -36,17 +36,58 @@ export class TransferListPage implements OnInit {
       // }
 
     this.getList();
-    
+
   }
 
-  goSearch() {}
-  goDetail() {}
+  // goSearch() {}
+  ionChange(event){
+    this.reSet ();
+    this.getList ();
+  }
+
+  // 当上划操作 ----
+  doInfinite(event) {
+    setTimeout(() => {
+
+      this.currentPage += 1;
+      this.getList();
+
+      console.log('Load page Done');
+      event.target.complete();
+
+      // App logic to determine if all data is loaded and disable the infinite scroll
+      if (this.currentPage === this.totalPages) {
+        console.log('Load Data Done');
+        event.target.disabled = true;
+      }
+    }, 500);
+  }
+
+ // 滑动刷新
+ doRefresh(event) {
+  console.log('Begin async operation');
+  this.reSet ();
+  this.getList ();
+  setTimeout(() => {
+    console.log('Async operation has ended');
+    event.target.complete();
+  }, 2000);
+}
+
   goTranListDetail(param: any) {
     this.router.navigate(['/transfer-list-detail'], {
       queryParams: {
-          searchFilters: JSON.stringify(this.filters)
+          listDetailArr: JSON.stringify(param)
       }
     });
+  }
+
+  // reset data
+  private reSet () {
+    // this.infiniteScroll.disabled = false;
+    this.totalPages = 0;
+    this.currentPage = 1;
+    this.itms = [];
   }
 
   getList() {

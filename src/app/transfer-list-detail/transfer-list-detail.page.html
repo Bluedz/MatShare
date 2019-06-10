@@ -11,8 +11,11 @@
 
 <ion-content>
     <ion-list>
-        <ion-item>1</ion-item>
-        <ion-item>2</ion-item>
-        <ion-item>3</ion-item>
+        <ion-item>调拨单号： {{arr.TransferNumber}}</ion-item>
+        <ion-item>物料号: {{arr.MatNo}}</ion-item>
+        <ion-item>状态：{{arr.State}}</ion-item>
+        <ion-item>联系信息：{{arr.contactInfo.desc}}</ion-item>
+        <ion-item>需求方制单部门：{{arr.D_side_Institution}}</ion-item>
+        <ion-item>需求方制单人：{{arr.D_side_Maker}}</ion-item>
       </ion-list>
 </ion-content>

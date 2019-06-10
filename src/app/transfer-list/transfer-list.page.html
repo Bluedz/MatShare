@@ -10,27 +10,36 @@
     placeholder="Search" 
     debounce = "500" 
     cancelButtonText="Cancel"  
-    showCancelButton ="false" 
+    showCancelButton ="true" 
     animated 
-    [(ngModel)] = "searchText"    
-    (click) = "goSearch()"     
-    > 
-    <!--
-    (ionChange) = "ionChange($event)"  
-    (ionCancel) = "onCancel($event)"
+    [(ngModel)] = "searchText"        
+    (ionChange) = "ionChange($event)"      
+    >     
+    <!-- (ionCancel) = "onCancel($event)"
     (ionClear) = "onClear($event)" -->
     </ion-searchbar>
   </ion-toolbar>    
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-list>
-    <ion-item *ngFor="let item of itms" (click)="goTranListDetail(item)">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>      
-      <ion-label>{{item.TransferNumber}} {{item.MatNo}}</ion-label>
+    <ion-item *ngFor="let item of itms" (click)="goTranListDetail(item)" (onclick)="goTranListDetail(item)">
+      <ion-icon name="paper" slot="start"></ion-icon>      
+      <ion-label>{{item.TransferNumber}} [ {{item.MatNo}} ]</ion-label>
       <div class="item-note" slot="end">
-        {{item.state}}
+        {{item.State}}
       </div>      
     </ion-item>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content
+        
+        loadingSpinner="bubbles"
+        loadingText="正在加载更多数据..."> <!--threshold="100px" -->
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

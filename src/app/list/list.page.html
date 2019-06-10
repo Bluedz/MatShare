@@ -25,23 +25,26 @@
   </ion-toolbar>  
 </ion-header>
 
-<ion-content>  
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>  
   <!-- <ion-button (click)="toggleInfiniteScroll()" expand="block">
     Toggle Infinite Scroll
   </ion-button> -->
-  <ion-button (click)="test()" expand="block">
+  <!-- <ion-button (click)="test()" expand="block">
     Test of Infinite Scroll
-  </ion-button> 
+  </ion-button>  -->
   <ion-list>
       <!--<ion-button routerDirection="root" routerLink="/home" >Default</ion-button>-->
     
     <ion-item *ngFor="let item of itms" (click)="gotolistDetail(item)">
-      <!-- <ion-icon [name]="item.icon" slot="start"></ion-icon> -->
-      <ion-label color="danger">{{item.MatNo}}</ion-label>
-      {{item.Base}}
-      <div class="item-note" slot="end">
-        {{item.MatDetail}}
+      <ion-icon name="build" slot="start"></ion-icon>
+      <ion-label color="danger">{{item.MatNo}}</ion-label>      
+      <div class="item-note">
+          {{item.Base}}
       </div>
+      <ion-label slot="end">{{item.MatDetail}}</ion-label>
     </ion-item>
   </ion-list>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
