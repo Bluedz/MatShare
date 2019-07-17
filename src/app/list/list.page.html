@@ -35,6 +35,9 @@
   <!-- <ion-button (click)="test()" expand="block">
     Test of Infinite Scroll
   </ion-button>  -->
+  <ion-button (click)="testInterFace()" expand="block">
+    Test of Interface
+  </ion-button> 
   <ion-list>
       <!--<ion-button routerDirection="root" routerLink="/home" >Default</ion-button>-->
     
@@ -47,9 +50,9 @@
       <ion-label slot="end">{{item.MatDetail}}</ion-label>
     </ion-item>
   </ion-list>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll streamer (ionInfinite)="doInfinite($event)" > 
     <ion-infinite-scroll-content
-      
+    threshold="1%"
       loadingSpinner="bubbles"
       loadingText="正在加载更多数据..."> <!--threshold="100px" -->
     </ion-infinite-scroll-content>

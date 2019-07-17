@@ -1,0 +1,11 @@
+{
+    "/api": {
+        "target": "http://www.yunlianchina.com:8087/api",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

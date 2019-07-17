@@ -22,12 +22,14 @@ export class HttpService {
 
   // get请求
   get(url: string): Observable<any> {
-    return this.httpClient.get(url, {
+    return this.httpClient.get(url
+      , {
       headers: new HttpHeaders({
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       })
-    });
+    }
+    );
     // .map(res => res.json());
   }
 
@@ -40,6 +42,17 @@ export class HttpService {
       })
     });
     // .map(res => res.json()) ;
+  }
+
+  loadTestData(api: any) {
+    // return this.httpClient.get('https://jsonplaceholder.typicode.com/todos');
+      // 'https://jsonplaceholder.typicode.com/comments');
+      // 'http://139.224.65.152:8087/api/Inventories?Page=2');
+
+
+      this.httpClient.get(api).subscribe(response => {
+      console.log(response);
+      });
   }
 
   loadfakeData(param0: string, param: Number, param2: string) {

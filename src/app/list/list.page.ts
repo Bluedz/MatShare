@@ -135,6 +135,8 @@ export class ListPage implements OnInit {
       console.log('Load page Done');
       event.target.complete();
 
+     // event.target.disabled = false;
+
       // App logic to determine if all data is loaded and disable the infinite scroll
       if (this.currentPage === this.totalPages) {
         console.log('Load Data Done');
@@ -173,5 +175,15 @@ export class ListPage implements OnInit {
     this.itms = [];
     this.getMatlist ();
     this.infiniteScroll.disabled = false;
+  }
+
+  testInterFace () {
+
+    const url1 = 'http://www.yunlianchina.com:8087/api/Inventories/22';
+    const url2 = 'https://jsonplaceholder.typicode.com/posts/1';
+    const url3 = '/api/Inventories?BaseCode=ZZ&Page=2';
+    const url4 = '/posts/1';
+
+    this.httpService.loadTestData(url3);
   }
 }

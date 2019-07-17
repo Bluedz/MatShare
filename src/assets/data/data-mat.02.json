@@ -109,6 +109,116 @@
             "WrkshpCode": "LPSZZ",
             "Manufacturer": "日东",
             "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A021",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A022",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A023",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A024",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A025",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A026",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A027",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A028",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A029",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
+        },
+        {
+            "MatNo": "DB100002", 
+            "Base": "临港", 
+            "WarehLoc": "LS015A030",
+            "Unit": "PC",
+            "Quantity": "14",
+            "BatchNum": "D00000000000034",
+            "WrkshpCode": "LPSZZ",
+            "Manufacturer": "日东",
+            "MatDetail": "气动接头|Connector|80SN"
         }
         ],
         "totalPages": 5
